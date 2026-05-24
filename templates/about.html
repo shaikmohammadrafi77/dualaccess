@@ -1,0 +1,280 @@
+{% extends "base.html" %}
+{% block title %}About - Dual Access Cloud{% endblock %}
+{% block content %}
+<div class="about-page">
+    <!-- Navigation Bar -->
+    <nav class="login-navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://img.icons8.com/fluency/32/cloud-security.png" alt="Logo"/>
+                <span>Dual Access Cloud</span>
+            </div>
+            <div class="nav-menu">
+                <a href="{{ url_for('index') }}" class="nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="{{ url_for('login') }}" class="nav-link">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="about-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">About Dual Access Cloud</h1>
+                <p class="hero-subtitle">Advanced Secure File Management System</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Content -->
+    <div class="about-content">
+        <div class="container">
+            <!-- Project Overview -->
+            <section class="about-section">
+                <div class="section-header">
+                    <h2>🚀 Project Overview</h2>
+                </div>
+                <div class="content-grid">
+                    <div class="content-text">
+                        <p>Dual Access Cloud is a cutting-edge cloud-based file management system that implements advanced security protocols and dual access control mechanisms. Built with modern web technologies, it provides a secure, scalable, and user-friendly platform for managing sensitive files in a cloud environment.</p>
+                        <p>Our system ensures that your files are protected with military-grade encryption while providing flexible access control through role-based permissions and attribute-based encryption.</p>
+                    </div>
+                    <div class="content-visual">
+                        <div class="security-animation">
+                            <div class="shield-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="security-rings">
+                                <div class="ring ring-1"></div>
+                                <div class="ring ring-2"></div>
+                                <div class="ring ring-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technologies Used -->
+            <section class="about-section">
+                <div class="section-header">
+                    <h2>🛠️ Technologies Used</h2>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3>Python Flask</h3>
+                        <p>Modern web framework for building secure and scalable web applications</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>SQLAlchemy</h3>
+                        <p>Powerful ORM for database management and secure data operations</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>CP-ABE Encryption</h3>
+                        <p>Ciphertext-Policy Attribute-Based Encryption for advanced security</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <h3>HTML5 & CSS3</h3>
+                        <p>Modern frontend technologies with responsive design</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fab fa-bootstrap"></i>
+                        </div>
+                        <h3>Bootstrap</h3>
+                        <p>Responsive framework for beautiful and mobile-friendly interfaces</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Storage</h3>
+                        <p>Secure cloud-based file storage with encryption at rest</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Features -->
+            <section class="about-section">
+                <div class="section-header">
+                    <h2>✨ Key Features</h2>
+                </div>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Role-Based Access Control</h3>
+                            <p>Four distinct user roles (Owner, End User, Authority, Admin) with granular permission controls</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Advanced Key Management</h3>
+                            <p>Automated key request and approval system with secure key distribution</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Secure File Upload</h3>
+                            <p>Encrypted file upload with automatic encryption and secure cloud storage</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Admin Dashboard</h3>
+                            <p>Comprehensive admin panel for system oversight and user management</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-trash-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>File Deletion Control</h3>
+                            <p>Secure file deletion with owner-only access and automatic cleanup</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Responsive Design</h3>
+                            <p>Mobile-friendly interface that works perfectly on all devices</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Choose Us -->
+            <section class="about-section">
+                <div class="section-header">
+                    <h2>🎯 Why Choose Dual Access Cloud?</h2>
+                </div>
+                <div class="why-choose-grid">
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Military-Grade Security</h3>
+                        <p>256-bit encryption with CP-ABE ensures your files are protected with the highest security standards</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Flexible Access Control</h3>
+                        <p>Granular permission system allows you to control exactly who can access your files</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>High Performance</h3>
+                        <p>Optimized for speed and scalability to handle large files and multiple users</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>24/7 Monitoring</h3>
+                        <p>Continuous security monitoring and system health checks</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Security Architecture -->
+            <section class="about-section">
+                <div class="section-header">
+                    <h2>🔒 Security Architecture</h2>
+                </div>
+                <div class="security-architecture">
+                    <div class="security-layer">
+                        <div class="layer-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="layer-content">
+                            <h3>Encryption Layer</h3>
+                            <p>All files are encrypted using CP-ABE before storage</p>
+                        </div>
+                    </div>
+                    <div class="security-layer">
+                        <div class="layer-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="layer-content">
+                            <h3>Authentication Layer</h3>
+                            <p>Secure user authentication with role-based access control</p>
+                        </div>
+                    </div>
+                    <div class="security-layer">
+                        <div class="layer-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <div class="layer-content">
+                            <h3>Key Management Layer</h3>
+                            <p>Automated key generation, distribution, and revocation</p>
+                        </div>
+                    </div>
+                    <div class="security-layer">
+                        <div class="layer-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="layer-content">
+                            <h3>Monitoring Layer</h3>
+                            <p>Real-time security monitoring and audit logging</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="about-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience Secure File Management?</h2>
+                <p>Join thousands of users who trust Dual Access Cloud for their secure file management needs.</p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('login') }}" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> Get Started
+                    </a>
+                    <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                        <i class="fas fa-home"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Authority Panel{% endblock %}
+{% block content %}
+<h3>Authority Panel</h3>
+<table class="table">
+  <tr><th>Username</th><th>Attributes</th><th>Active</th><th>Actions</th></tr>
+  {% for u in users %}
+  <tr>
+    <td>{{ u.username }}</td>
+    <td>{{ u.attributes }}</td>
+    <td>{{ 'Yes' if u.active else 'No' }}</td>
+    <td>
+      <form method="post" action="/authority/issue" style="display:inline">
+        <input type="hidden" name="userId" value="{{ u.user_id }}">
+        <input type="text" name="attributes" placeholder="New attributes">
+        <button class="btn btn-success btn-sm">Issue</button>
+      </form>
+      <form method="post" action="/authority/revoke" style="display:inline">
+        <input type="hidden" name="userId" value="{{ u.user_id }}">
+        <button class="btn btn-danger btn-sm">Revoke</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

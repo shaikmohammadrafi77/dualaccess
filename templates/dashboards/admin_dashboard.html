@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard - Dual Access Cloud{% endblock %}
+{% block content %}
+<div class="admin-dashboard">
+    <div class="dashboard-content">
+        <div class="admin-hero">
+            <div class="d-flex align-items-center mb-3">
+                <img src="https://img.icons8.com/fluency/48/admin-settings-male.png" alt="Admin" class="me-3"/>
+                <div>
+                    <h2 class="m-0">👑 Cloud Admin Dashboard</h2>
+                    <small class="text-muted">Complete system overview and management</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stacked: All Users -->
+        <div class="card mb-4" style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.3);">
+            <div class="card-header" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24); border: none; border-radius: 15px 15px 0 0;">
+                <h4 class="mb-0 text-white">👥 All Users</h4>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-bordered mb-0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>👤 Username</th>
+                            <th>🎭 Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <td><strong>{{ user.id }}</strong></td>
+                            <td>{{ user.username }}</td>
+                            <td>
+                                <span class="badge bg-{{ 'primary' if user.role == 'admin' else ('success' if user.role == 'owner' else ('info' if user.role == 'authority' else 'secondary')) }}">
+                                    {% if user.role == 'admin' %}👑 Admin{% elif user.role == 'owner' %}📁 Owner{% elif user.role == 'authority' %}🛡️ Authority{% else %}👤 End User{% endif %}
+                                </span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Stacked: Key Requests -->
+        <div class="card mb-4" style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.3);">
+            <div class="card-header" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24); border: none; border-radius: 15px 15px 0 0;">
+                <h4 class="mb-0 text-white">🔑 Key Requests Management</h4>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-bordered table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>👤 User</th>
+                            <th>📄 File</th>
+                            <th>📊 Status</th>
+                            <th>⏰ Requested</th>
+                            <th>⏱️ Responded</th>
+                            <th>⚡ Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for r in requests %}
+                        <tr>
+                            <td><strong>{{ r.id }}</strong></td>
+                            <td><span class="badge bg-secondary">{{ r.user.username }}</span></td>
+                            <td>{{ r.file.filename }}</td>
+                            <td>
+                                <span class="badge bg-{{ 'success' if r.status == 'Approved' else ('danger' if r.status == 'Rejected' else 'warning') }}">
+                                    {% if r.status == 'Approved' %}✅ Approved{% elif r.status == 'Rejected' %}❌ Rejected{% else %}⏳ Pending{% endif %}
+                                </span>
+                            </td>
+                            <td>{{ r.request_time.strftime('%Y-%m-%d %H:%M') }}</td>
+                            <td>{{ r.response_time.strftime('%Y-%m-%d %H:%M') if r.response_time else '-' }}</td>
+                            <td>
+                                <div class="btn-group btn-group-sm">
+                                    <a class="btn btn-success" href="{{ url_for('admin_approve', req_id=r.id) }}" {% if r.status != 'Pending' %}disabled{% endif %}>✅ Approve</a>
+                                    <a class="btn btn-danger" href="{{ url_for('admin_reject', req_id=r.id) }}" {% if r.status != 'Pending' %}disabled{% endif %}>❌ Reject</a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card" style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.3);">
+            <div class="card-header" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24); border: none; border-radius: 15px 15px 0 0;">
+                <h4 class="mb-0 text-white">📁 All Files Management</h4>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-bordered table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>📄 Filename</th>
+                            <th>👤 Owner</th>
+                            <th>🔒 Access Policy</th>
+                            <th>⚡ Bulk Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for file in files %}
+                        <tr>
+                            <td><strong>{{ file.id }}</strong></td>
+                            <td>{{ file.filename }}</td>
+                            <td><span class="badge bg-info">{{ file.owner.username }}</span></td>
+                            <td><span class="badge bg-warning">{{ file.access_policy }}</span></td>
+                            <td>
+                                <div class="btn-group btn-group-sm">
+                                    <a class="btn btn-success" href="{{ url_for('admin_approve_file', file_id=file.id) }}">✅ Approve All</a>
+                                    <a class="btn btn-danger" href="{{ url_for('admin_reject_file', file_id=file.id) }}">❌ Reject All</a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

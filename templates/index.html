@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% block title %}Dual Access Cloud - Secure File Management{% endblock %}
+{% block content %}
+<div class="homepage">
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Dual Access Cloud</span>
+                    <br>
+                    <span class="subtitle">Secure • Encrypted • Protected</span>
+                </h1>
+                <p class="hero-description">
+                    Advanced cloud-based file management system with dual access control, 
+                    CP-ABE encryption, and role-based security. Experience the future of 
+                    secure file sharing and management.
+                </p>
+                <div class="hero-buttons">
+                    <a href="{{ url_for('login') }}" class="btn btn-hero-primary">
+                        <i class="fas fa-sign-in-alt"></i> Get Started
+                    </a>
+                    <a href="#features" class="btn btn-hero-secondary">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="cloud-animation">
+                    <div class="cloud cloud-1"></div>
+                    <div class="cloud cloud-2"></div>
+                    <div class="cloud cloud-3"></div>
+                    <div class="security-shield">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="data-flow">
+                        <div class="data-point point-1"></div>
+                        <div class="data-point point-2"></div>
+                        <div class="data-point point-3"></div>
+                        <div class="data-point point-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Dual Access Cloud?</h2>
+                <p>Advanced security features for modern file management</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>CP-ABE Encryption</h3>
+                    <p>Advanced Ciphertext-Policy Attribute-Based Encryption ensures your files are protected with the latest cryptographic standards.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3>Role-Based Access</h3>
+                    <p>Four distinct user roles: Owner, End User, Authority, and Admin with granular permission controls.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>Key Management</h3>
+                    <p>Automated key request and approval system with secure key distribution and management.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Secure Upload</h3>
+                    <p>Encrypted file upload with automatic encryption and secure storage in the cloud.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Trusted Authority</h3>
+                    <p>Dedicated authority role for managing access policies and monitoring system security.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Admin Dashboard</h3>
+                    <p>Comprehensive admin panel for system oversight, user management, and security monitoring.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">256-bit</div>
+                    <div class="stat-label">Encryption</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">User Roles</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Secure</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Monitoring</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Secure Your Files?</h2>
+                <p>Join thousands of users who trust Dual Access Cloud for their secure file management needs.</p>
+                <a href="{{ url_for('login') }}" class="btn btn-cta">
+                    <i class="fas fa-rocket"></i> Start Your Journey
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock %}
