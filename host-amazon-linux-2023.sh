@@ -22,6 +22,11 @@ echo "Installing system packages..."
 dnf update -y
 dnf install -y git python3 python3-pip
 
+if [ -d "${APP_DIR}" ]; then
+  echo "Fixing project directory ownership..."
+  chown -R "${APP_USER}:${APP_GROUP}" "${APP_DIR}"
+fi
+
 echo "Cloning or updating project..."
 if [ ! -d "${APP_DIR}/.git" ]; then
   su -s /bin/bash "${APP_USER}" -c "git clone --branch '${APP_BRANCH}' '${REPO_URL}' '${APP_DIR}'"

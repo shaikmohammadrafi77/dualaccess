@@ -17,6 +17,10 @@ SERVICE_FILE="/etc/systemd/system/${APP_NAME}.service"
 dnf update -y
 dnf install -y git python3 python3-pip
 
+if [ -d "${APP_DIR}" ]; then
+  chown -R "${APP_USER}:${APP_GROUP}" "${APP_DIR}"
+fi
+
 if [ ! -d "${APP_DIR}/.git" ]; then
   su -s /bin/bash "${APP_USER}" -c "git clone '${REPO_URL}' '${APP_DIR}'"
 else
