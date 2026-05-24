@@ -44,7 +44,8 @@ cat > "${ENV_FILE}" <<EOF
 SECRET_KEY=${SECRET_KEY}
 EOF
 
-chmod 600 "${ENV_FILE}"
+chown root:"${APP_GROUP}" "${ENV_FILE}"
+chmod 640 "${ENV_FILE}"
 
 mkdir -p "${APP_DIR}/uploads"
 chown -R "${APP_USER}:${APP_GROUP}" "${APP_DIR}/uploads"

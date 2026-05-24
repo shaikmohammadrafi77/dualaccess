@@ -55,7 +55,8 @@ PY
 SECRET_KEY=${SECRET_KEY}
 EOF
 
-  chmod 600 "${ENV_FILE}"
+  chown root:"${APP_GROUP}" "${ENV_FILE}"
+  chmod 640 "${ENV_FILE}"
 fi
 
 mkdir -p "${APP_DIR}/uploads"
